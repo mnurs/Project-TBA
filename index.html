@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Simulator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="row">
+        <div class="container-fluid p-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Turing Machine Simulator</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Silahkan Masukkan Bilangan dan Operator yang diinginkan</h5>
+                    <div class="input-group">
+                        <input type="number" id="bil-1" class="form-control mr-3 d-none" placeholder="Bilangan 1">
+                        <select class="form-control mr-3" id="operator">
+                            <option value="">-- Pilih Operator --</option>
+                            <option value="tambah">+</option>
+                            <option value="kurang">-</option>
+                            <option value="kali">*</option>
+                            <option value="bagi">/</option>
+                            <option value="faktorial">!</option>
+                            <option value="modulo">%</option>
+                            <option value="pangkat">^</option>
+                            <option value="logBiner">Log2</option>
+                        </select>
+                        <input type="text" class="form-control mr-3 d-none" disabled value="!" id="factorialInput">
+                        <input type="number" id="bil-2" class="form-control mr-3 d-none" placeholder="Bilangan 2">
+                        <button class="btn btn-primary btn-sm" id="generateButton">Generate</button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row overflow-auto">
+                        <div class="col-md-2">
+                            <select class="form-control pl-3" id="speed">
+                                <option value="super-fast">Super Fast</option>
+                                <option value="fast">Fast</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="slow">Slow</option>
+                            </select>
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="pagination" id="list-parent">
+                        </div>
+                    </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="script/modulo.js"></script>
+    <script src="script/bagi.js"></script>
+    <script src="script/tambah.js"></script>
+    <script src="script/logBiner.js"></script>
+    <script src="script/pangkat.js"></script>
+    <script src="script/kurang.js"></script> -->
+    <script src="asset/faktorial.js"></script>
+    <!-- <script src="script/perkalian.js"></script> -->
+
+
+    <script>
+        var counter;
+        var sleepTime = 500;
+        
+        function reset(){
+            var ul = document.getElementById("list-parent");
+            while(ul.firstChild){
+                ul.removeChild(ul.firstChild);
+            }
+            counter = -1;
+        }
+
+        // sleep time expects milliseconds
+        function sleep (time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+
+        var operator = document.getElementById("operator");
+        var bilInput1 = document.getElementById("bil-1");
+        var bilInput2 = document.getElementById("bil-2");
+        var generateButton = document.getElementById("generateButton");
+
+        operator.addEventListener("change", function(){
+            bilInput1.setAttribute("class", "form-control mr-3 d-none");
+            bilInput2.setAttribute("class", "form-control mr-3 d-none");
+            console.log(operator.value);
+
+            // if(operator.value == "tambah" || operator.value == "kurang" || operator.value == "kali" || operator.value == "bagi" || operator.value == "modulo" || operator.value == "pangkat"){
+            //     bilInput1.setAttribute("class", "form-control mr-3");
+            //     bilInput2.setAttribute("class", "form-control mr-3");
+            // }
+            // else 
+            if( operator.value == "faktorial" || operator.value == "logBiner"){
+                bilInput1.setAttribute("class", "form-control mr-3");
+            }
+
+            // if (operator.value == "tambah"){
+            //     generateButton.setAttribute("onclick", "javascript: generateTambah();");
+            // }
+            // else if (operator.value == "kurang"){
+            //     generateButton.setAttribute("onclick", "javascript: generateKurang();");
+            // }
+            // else if (operator.value == "kali"){
+            //     generateButton.setAttribute("onclick", "javascript: generateKali();");
+            // }
+            // else if (operator.value == "bagi"){
+            //     generateButton.setAttribute("onclick", "javascript: generateBagi();");
+            // }
+            // else 
+                if (operator.value == "faktorial"){
+                generateButton.setAttribute("onclick", "javascript: generateFaktorial();");
+            }
+            // else if (operator.value == "modulo"){
+            //     generateButton.setAttribute("onclick", "javascript: generateModulo();");
+            // }
+            // else if (operator.value == "pangkat"){
+            //     generateButton.setAttribute("onclick", "javascript: generatePangkat();");
+            // }
+            // else if (operator.value == "logBiner"){
+            //     generateButton.setAttribute("onclick", "javascript: generateLogBiner();");
+            // }
+        });
+
+        speedInput = document.getElementById("speed");
+        speedInput.addEventListener("change", function(){
+
+            if(speedInput.value == "slow") sleepTime = 1000;
+            else if(speedInput.value == "medium") sleepTime = 500;
+            else if(speedInput.value == "fast") sleepTime = 150;
+            else if(speedInput.value == "super-fast") sleepTime = 1;
+        });
+
+        function createLi(value){
+                var ul = document.getElementById("list-parent");
+                var li = document.createElement('li');
+                counter++;
+
+                li.appendChild(document.createTextNode(value));
+                li.setAttribute("class","page-item page-link");
+                li.setAttribute("id", "item-"+counter);
+                ul.appendChild(li);
+        }
+
+        function forCreateLi(temp, value) {
+            for (let index = 0; index < temp; index++) {
+                createLi(value);
+            }
+        }
+        
+    </script>
+</body>
+</html>
