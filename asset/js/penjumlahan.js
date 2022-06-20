@@ -1,21 +1,21 @@
 function generateTambah(){
     reset();
 
-    var a = parseInt($("#angka1").val());
-    var b = parseInt($("#angka2").val());
+    var angka1 = parseInt($("#angka1").val());
+    var angka2 = parseInt($("#angka2").val());
     
-    if(isNaN(a) || isNaN(b)){
+    if(isNaN(angka1) || isNaN(b)){
         swal("error","Input tidak valid", "error");
         return;
     }
 
-    var pa = a > 0 ? a : a * (-1);
-    var pb = b > 0 ? b : b * (-1);
+    var positifangka1 = angka1 > 0 ? angka1 : angka1 * (-1);
+    var positifangka2 = angka2 > 0 ? angka2 : angka2 * (-1);
 
     loopCreateTape(1, "B");
-    loopCreateTape(pa, "0");
+    loopCreateTape(positifangka1, "0");
     loopCreateTape(1, "1");
-    loopCreateTape(pb, "0");
+    loopCreateTape(positifangka2, "0");
     loopCreateTape(1, "1");
     loopCreateTape(1, "B");
 
