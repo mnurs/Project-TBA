@@ -1,26 +1,26 @@
 function generateFaktorial(){
     reset();
 
-    var a = parseInt($("#angka1").val());
+    var angka1 = parseInt($("#angka1").val());
 
-    if(isNaN(a)){
+    if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
         return;
     }
 
-    if (a < 0) {
+    if (angka1 < 0) {
         swal("error","Input tidak valid", "error");
     }
 
     
-    if(a == 0){
+    if(angka1 == 0){
         loopCreateTape(1, "B");
         loopCreateTape(1, "B");  
         loopCreateTape(1, "0");
         state24(1);
     }else{
         loopCreateTape(1, "B");
-        loopCreateTape(a, "0");  
+        loopCreateTape(angka1, "0");  
         loopCreateTape(1, "B");
         state0(1);    
     }
@@ -39,16 +39,17 @@ function state0(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R 1");
+        switch(value.text()) {
+         case "0":
+            value.text("0"); 
             state0(position+1);
-        }
-        else if(value.text() == "B"){
-            value.text("1");
-            console.log("B/1,S");
+          break;
+         case "B":
+            value.text("1"); 
             state1(position);
-        }
+          break;
+         default: 
+        }       
     });
 }
 
@@ -64,20 +65,21 @@ function state1(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+        switch(value.text()) {
+         case "1":
+            value.text("1"); 
+            state1(position-1); 
+          break;
+         case "0":
+             value.text("0"); 
             state1(position-1);
-        }
-        else if(value.text() == "0"){
-             value.text("0");
-            console.log("0/0,L");
-            state1(position-1);
-        }else if(value.text() == "B"){
-            value.text("B");
-            console.log("B/B,R");
+          break;
+         case "B":
+            value.text("B"); 
             state2(position+1);
-        }
+          break;
+         default: 
+        }       
     });
 }
 
@@ -94,16 +96,17 @@ function state2(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("X");
-            console.log("0/X,R");
+        switch(value.text()) {
+         case "0": 
+            value.text("X"); 
             state3(position+1);
-        }
-        else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+          break;
+         case "1":
+            value.text("1"); 
             state5(position+1);
-        }
+          break;
+         default: 
+        }       
     });
 }
 
@@ -122,20 +125,21 @@ function state3(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state3(position+1);
-        }
-        else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+          break;
+         case "0":
+            value.text("0"); 
             state3(position+1);
-        } else if(value.text() == "B"){
-            value.text("0");
-            console.log("0/0,S");
+          break;
+         case "B":
+            value.text("0"); 
             state4(position);
-        }
+          break;
+         default: 
+        }      
     });
 }
 
@@ -152,20 +156,21 @@ function state4(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+        switch(value.text()) {
+         case "0": 
+            value.text("0"); 
             state4(position-1);
-        }
-        else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+          break;
+         case "1":
+            value.text("1"); 
             state4(position-1);
-        }else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+          break;
+         case "X":
+            value.text("X"); 
             state2(position+1);
-        } 
+          break;
+         default: 
+        }       
     });
 }
 
@@ -181,16 +186,17 @@ function state5(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+        switch(value.text()) {
+         case "0": 
+            value.text("0"); 
             state5(position+1);
-        }
-        else if(value.text() == "B"){
-            value.text("1");
-            console.log("B/1,L");
+          break;
+         case "B":
+            value.text("1"); 
             state7(position-1);
-        }
+          break; 
+         default: 
+        }        
     });
 }
 
@@ -206,26 +212,25 @@ function state6(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state6(position-1);
-        }
-        else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,L");
+          break;
+         case "X":
+            value.text("X"); 
             state6(position-1);
-        }
-        else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+          break; 
+         case "0":
+            value.text("0"); 
             state6(position-1);
-        }
-        else if(value.text() == "B"){
-            value.text("B");
-            console.log("B/B,R");
+          break; 
+         case "B":
+            value.text("B"); 
             state16(position+1);
-        }
+          break; 
+         default: 
+        }         
     });
 }
 
@@ -241,26 +246,25 @@ function state7(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state7(position-1);
-        }
-        else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+          break;
+         case "0":
+            value.text("0"); 
             state7(position-1);
-        }
-        else if(value.text() == "X"){
-            value.text("0");
-            console.log("X/0,L");
+          break; 
+         case "X":
+            value.text("0"); 
             state7(position-1);
-        }
-        else if(value.text() == "B"){
-            value.text("B");
-            console.log("B/B,R");
+          break; 
+         case "B":
+            value.text("B"); 
             state8(position+1);
-        }
+          break; 
+         default: 
+        }          
     });
 }
 
@@ -277,11 +281,13 @@ function state8(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("B");
-            console.log("0/B,R");
+        switch(value.text()) { 
+         case "0":
+            value.text("B"); 
             state9(position+1);
-        } 
+          break;  
+         default: 
+        }           
     });
 }
 
@@ -298,15 +304,17 @@ function state9(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("X");
-            console.log("0/X,R");
+        switch(value.text()) {
+         case "0":
+            value.text("X"); 
             state10(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+          break; 
+         case "1": 
+            value.text("1"); 
             state6(position-1);
-        } 
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -323,15 +331,17 @@ function state10(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+        switch(value.text()) {
+         case "0":
+            value.text("0"); 
             state10(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+          break; 
+         case "1": 
+            value.text("1"); 
             state11(position+1);
-        } 
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -348,15 +358,17 @@ function state11(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("X");
-            console.log("0/X,R");
+        switch(value.text()) {
+         case "0":
+            value.text("X"); 
             state12(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+          break;  
+         case "1": 
+            value.text("1"); 
             state14(position-1);
-        } 
+          break;
+         default: 
+        }   
     });
 }
 
@@ -373,19 +385,21 @@ function state12(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state12(position+1);
-        }else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+          break;
+         case "0":
+            value.text("0"); 
             state12(position+1);
-        }else if(value.text() == "B"){
-            value.text("0");
-            console.log("B/0,S");
+          break;  
+         case "B":
+            value.text("0"); 
             state13(position);
-        } 
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -401,19 +415,21 @@ function state13(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state13(position-1);
-        }else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+          break;
+         case "0":
+            value.text("0"); 
             state13(position-1);
-        }else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+          break; 
+         case "X":
+            value.text("X"); 
             state11(position+1);
-        } 
+          break;  
+         default: 
+        }   
     });
 }
 
@@ -429,15 +445,17 @@ function state14(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("0");
-            console.log("X/0,L");
+        switch(value.text()) {
+         case "X":
+            value.text("0"); 
             state14(position-1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+          break;  
+         case "1": 
+            value.text("1"); 
             state15(position-1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -453,19 +471,21 @@ function state15(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("0");
-            console.log("1/0,L");
+        switch(value.text()) {
+         case "1": 
+            value.text("0"); 
             state15(position-1);
-        }else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+          break;
+         case "0":
+            value.text("0"); 
             state15(position-1);
-        }else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+          break; 
+         case "X":
+            value.text("X"); 
             state9(position+1);
-        }
+          break;  
+         default: 
+        }   
     });
 }
 
@@ -481,15 +501,17 @@ function state16(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("B");
-            console.log("X/B,R");
+        switch(value.text()) {
+         case "X":
+            value.text("B"); 
             state17(position+1);
-        }else if(value.text() == "1"){
-            value.text("B");
-            console.log("1/B,R");
+          break;  
+         case "1": 
+            value.text("B"); 
             state25(position+1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -505,19 +527,21 @@ function state17(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+        switch(value.text()) {
+         case "X":
+            value.text("X"); 
             state19(position+1);
-        }else if(value.text() == "1"){
-            value.text("B");
-            console.log("1/B,R");
+          break; 
+         case "1": 
+            value.text("B"); 
             state18(position+1);
-        }else if(value.text() == "0"){
-            value.text("B");
-            console.log("0/B,R");
+          break;
+         case "0":
+            value.text("B"); 
             state18(position+1);
-        }
+          break;  
+         default: 
+        }   
     });
 }
 
@@ -533,19 +557,21 @@ function state18(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("B");
-            console.log("0/B,R");
+        switch(value.text()) {
+         case "0":
+            value.text("B"); 
             state18(position+1);
-        }else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+          break; 
+         case "X":
+            value.text("X"); 
             state22(position+1);
-        }else if(value.text() == "1"){
-            value.text("B");
-            console.log("1/B,S");
+          break; 
+         case "1": 
+            value.text("B"); 
             state24(position);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -561,19 +587,21 @@ function state19(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+        switch(value.text()) {
+         case "0":
+            value.text("0"); 
             state19(position+1);
-        }else if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+          break; 
+         case "X":
+            value.text("X"); 
             state19(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+          break; 
+         case "1": 
+            value.text("1"); 
             state20(position+1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -589,20 +617,21 @@ function state20(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+        switch(value.text()) {
+         case "X":
+            value.text("X"); 
             state20(position+1);
-        }
-        else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+          break; 
+         case "0":
+            value.text("0"); 
             state20(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+          break; 
+         case "1": 
+            value.text("1"); 
             state21(position-1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -618,19 +647,21 @@ function state21(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,L");
+        switch(value.text()) {
+         case "X":
+            value.text("X"); 
             state21(position-1);
-        }else if(value.text() == "0"){
-            value.text("X");
-            console.log("0/X,L");
+          break; 
+         case "0":
+            value.text("X"); 
             state6(position-1);
-        }else if(value.text() == "1"){
-            value.text("X");
-            console.log("1/X,L");
+          break; 
+         case "1": 
+            value.text("X"); 
             state6(position-1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -646,23 +677,25 @@ function state22(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "X"){
-            value.text("X");
-            console.log("X/X,R");
+        switch(value.text()) {
+         case "X":
+            value.text("X"); 
             state22(position+1);
-        }else if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,R");
+          break; 
+         case "1": 
+            value.text("1"); 
             state22(position+1);
-        }else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+          break;
+         case "0":
+            value.text("0"); 
             state22(position+1);
-        }else if(value.text() == "B"){
-            value.text("1");
-            console.log("B/1,L");
+          break; 
+         case "B":
+            value.text("1"); 
             state23(position-1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -678,24 +711,25 @@ function state23(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
-            value.text("1");
-            console.log("1/1,L");
+        switch(value.text()) {
+         case "1": 
+            value.text("1"); 
             state23(position-1);
-        }
-        else if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,L");
+          break;
+         case "0":
+            value.text("0"); 
             state23(position-1);
-        }else if(value.text() == "X"){
-            value.text("0");
-            console.log("X/0,R");
+          break; 
+         case "X":
+            value.text("0"); 
             state23(position+1);
-        }else if(value.text() == "B"){
-            value.text("B");
-            console.log("B/1,R");
+          break; 
+         case "B":
+            value.text("B"); 
             state9(position+1);
-        }
+          break; 
+         default: 
+        }   
     });
 }
 
@@ -717,18 +751,20 @@ function state25(position) {
     } 
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
-            value.text("0");
-            console.log("0/0,R");
+        switch(value.text()) {
+         case "0":
+            value.text("0"); 
             state25(position+1);
-        }else if(value.text() == "1"){
-            value.text("B");
-            console.log("1/B,R");
+          break;  
+         case "1": 
+            value.text("B"); 
             state25(position+1);
-        }else if(value.text() == "B"){
-            value.text("B");
-            console.log("B/B,S");
+          break;
+         case "B":
+            value.text("B"); 
             state24(position);
-        }
+          break; 
+         default: 
+        }   
     });
 }
