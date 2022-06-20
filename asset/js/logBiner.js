@@ -1,19 +1,19 @@
 function generateLogBiner(){
     reset();
 
-    var a = parseInt($("#angka1").val());
+    var angka1 = parseInt($("#angka1").val());
     
-    if(isNaN(a)){
+    if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
         return;
     }
 
-    if (a < 0) {
+    if (angka1 < 0) {
         swal("error","Input tidak valid", "error");
     }
 
     loopCreateTape(1, "B");
-    loopCreateTape(a, "1");
+    loopCreateTape(angka1, "1");
     loopCreateTape(3, "B");
 
     logState0(1);
@@ -25,14 +25,17 @@ function logState0(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) {
+         case "1": 
             value.text("1");
             logState1(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             logState12(position+1);
-        }
+          break; 
+         default: 
+        }      
     });
 }
 
@@ -42,14 +45,17 @@ function logState1(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) {
+         case "1": 
             value.text("1");
             logState2(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             logState11(position-1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
@@ -59,14 +65,17 @@ function logState2(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) {
+         case "1": 
             value.text("C");
             logState3(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             logState11(position-1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
@@ -76,18 +85,21 @@ function logState3(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) {
+         case "1": 
             value.text("C");
             logState4(position-1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             logState3(position+1);
-        }
-        else if(value.text() == "B"){
+          break;
+         case "B":
             value.text("B");
             logState7(position-1);
-        }
+          break;
+         default: 
+        }     
     });
 }
 
@@ -97,22 +109,25 @@ function logState4(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             logState4(position-1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("1");
             logState4(position-1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             logState4(position-1);
-        }
-        else if(value.text() == "B"){
+          break;
+         case "B":
             value.text("B");
             logState5(position+1);
-        }
+          break;
+         default: 
+        }   
     });
 }
 
@@ -122,18 +137,21 @@ function logState5(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("1");
             logState6(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("0");
             logState5(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("1");
             logState6(position+1);
-        }
+          break;
+         default: 
+        }     
     });
 }
 
@@ -143,18 +161,21 @@ function logState6(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             logState6(position+1);
-        }
-        else if(value.text() == "1"){
+          break; 
+         case "1": 
             value.text("1");
             logState6(position+1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             logState3(position+1);
-        }
+          break;
+         default: 
+        }     
     });
 }
 
@@ -164,22 +185,25 @@ function logState7(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             logState7(position-1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("1");
             logState7(position-1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("B");
             logState7(position-1);
-        }
-        else if(value.text() == "B"){
+          break;
+         case "B":
             value.text("B");
             logState8(position+1);
-        }
+          break;
+         default: 
+        }     
     });
 }
 
@@ -189,14 +213,17 @@ function logState8(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("1");
             logState8(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("1");
             logState9(position+1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
@@ -207,18 +234,21 @@ function logState9(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("1");
             logState9(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("1");
             logState10(position+1);
-        }
-        else if(value.text() == "B"){
+          break;
+         case "B":
             value.text("B");
             logState11(position-1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
@@ -229,18 +259,21 @@ function logState10(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("1");
             logState10(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1": 
             value.text("1");
             logState10(position+1);
-        }
-        else if(value.text() == "B"){
+          break;
+         case "B":
             value.text("B");
             logState12(position-1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
@@ -250,10 +283,13 @@ function logState11(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) {
+         case "1": 
             value.text("B");
             logState12(position+1);
-        }
+          break; 
+         default: 
+        }     
     });
 }
 
