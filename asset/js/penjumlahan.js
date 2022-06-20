@@ -28,14 +28,17 @@ function penjumlahanState0(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("B");
             penjumlahanState1(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("B");
             penjumlahanState2(position+1);
-        }
+          break; 
+         default: 
+        }       
     });
 }
 
@@ -45,13 +48,17 @@ function penjumlahanState1(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
+            value.text("0");
             penjumlahanState1(position+1);
-        }
-        else if(value.text() == "1"){
-           value.text("0");
+          break;
+         case "1":
+            value.text("0");
             penjumlahanState2(position+1);
-        }
+          break; 
+         default: 
+        }       
     });
 }
 
@@ -61,13 +68,17 @@ function penjumlahanState2(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
+            value.text("0");
             penjumlahanState2(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("B");
             penjumlahanState3(position+1);
-        }
+          break; 
+         default: 
+        }       
     });
 }
 

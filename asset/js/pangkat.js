@@ -1,28 +1,25 @@
 function generatePangkat(){
     reset();
 
-    var a = parseInt($("#angka1").val());
-    var b = parseInt($("#angka2").val());
+    var angka1 = parseInt($("#angka1").val());
+    var angka2 = parseInt($("#angka2").val());
     
-    if(isNaN(a) || isNaN(b)){
+    if(isNaN(angka1) || isNaN(angka2)){
         swal("error","Input tidak valid", "error");
         return;
     }
 
-    if(b == 0){
+    if(angka2 == 0){
         swal("error", "Pangkat tidak boleh 0","error");
         return;
-    }
-
-    var pa = a > 0 ? a : a * (-1);
-    var pb = b > 0 ? b : b * (-1);
-
+    } 
+    
     loopCreateTape(1, "B");
-    for (let i = 0; i < b; i++) {
-        loopCreateTape(a, "0");
+    for (let i = 0; i < angka2; i++) {
+        loopCreateTape(angka1, "0");
         loopCreateTape(1, "C");
     }
-    loopCreateTape(Math.pow(a,b) * 2, "B");
+    loopCreateTape(Math.pow(angka1,angka2) * 2, "B");
 
     pangkatState0(1);
 }
@@ -33,14 +30,18 @@ function pangkatState0(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("B");
             pangkatState1(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("B");
             pangkatState7(position+1);
-        }
+          break; 
+         default:
+         
+        }     
     });
 }
 
@@ -50,14 +51,17 @@ function pangkatState1(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState1(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             pangkatState2(position+1);
-        }
+          break; 
+         default: 
+        }    
     });
 }
 
@@ -67,18 +71,21 @@ function pangkatState2(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("Y");
             pangkatState3(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             pangkatState5(position-1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("1");
             pangkatState15(position-1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -88,22 +95,25 @@ function pangkatState3(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState3(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("1");
             pangkatState3(position+1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             pangkatState3(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("1");
             pangkatState4(position-1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -113,22 +123,25 @@ function pangkatState4(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState4(position-1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("1");
             pangkatState4(position-1);
-        }
-        else if(value.text() == "Y"){
+          break;
+         case "Y":
             value.text("Y");
             pangkatState2(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             pangkatState4(position-1);
-        }
+          break;
+         default: 
+        }   
     });
 }
 
@@ -138,14 +151,17 @@ function pangkatState5(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "Y"){
+        switch(value.text()) { 
+         case "Y":
             value.text("0");
             pangkatState5(position-1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             pangkatState6(position-1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -155,14 +171,17 @@ function pangkatState6(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState6(position-1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             pangkatState0(position+1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -172,10 +191,14 @@ function pangkatState7(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("B");
             pangkatState8(position+1);
-        }
+          break; 
+         default:
+         
+        }    
     });
 }
 
@@ -185,14 +208,17 @@ function pangkatState8(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("B");
             pangkatState8(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("B");
             pangkatState9(position+1);
-        }
+          break; 
+         default: 
+        }    
     });
 }
 
@@ -202,14 +228,17 @@ function pangkatState9(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState10(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("1");
             pangkatState13(position-1);
-        }
+          break; 
+         default: 
+        }    
     });
 }
 
@@ -219,18 +248,21 @@ function pangkatState10(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState10(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("0");
             pangkatState11(position+1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             pangkatState10(position+1);
-        }
+          break; 
+         default: 
+        }    
     });
 }
 
@@ -240,14 +272,18 @@ function pangkatState11(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "1"){
+        switch(value.text()) { 
+         case "1":
             value.text("0");
             pangkatState11(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("C");
             pangkatState12(position-1);
-        }
+          break;
+         default:
+         
+        }    
     });
 }
 
@@ -257,18 +293,21 @@ function pangkatState12(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState12(position-1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("C");
             pangkatState12(position-1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B": 
             value.text("B");
             pangkatState0(position+1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -279,13 +318,17 @@ function pangkatState13(position) {
     waktu(waktuPindah).then(() => {
             console.log(value.text());
         value.removeClass("bg-dark");
-        if(value.text() == "C"){
+        switch(value.text()) { 
+         case "C":
             value.text("B");
             pangkatState14(position+1); 
-        }else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             pangkatState14(position+1);
-        }
+          break;
+         default: 
+        }    
     });
 }
 
@@ -299,22 +342,26 @@ function pangkatState15(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState15(position-1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("1");
             pangkatState15(position-1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             pangkatState15(position-1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("B");
             pangkatState16(position+1);
-        }
+          break;
+         default:
+         
+        }    
     });
 }
 
@@ -324,14 +371,17 @@ function pangkatState16(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("B");
             pangkatState17(position+1);
-        }
-        else if(value.text() == "C"){
+          break; 
+         case "C":
             value.text("B");
             pangkatState14(position+1);
-        }
+          break; 
+         default: 
+        }    
     });
 }
 
@@ -341,21 +391,24 @@ function pangkatState17(position) {
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
-        if(value.text() == "0"){
+        switch(value.text()) {
+         case "0": 
             value.text("0");
             pangkatState17(position+1);
-        }
-        else if(value.text() == "1"){
+          break;
+         case "1":
             value.text("1");
             pangkatState17(position+1);
-        }
-        else if(value.text() == "C"){
+          break;
+         case "C":
             value.text("C");
             pangkatState17(position+1);
-        }
-        else if(value.text() == "B"){
+          break; 
+         case "B":
             value.text("1");
             pangkatState15(position-1);
-        }
+          break;
+         default: 
+        }    
     });
 }
