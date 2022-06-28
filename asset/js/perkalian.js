@@ -1,8 +1,10 @@
+var angka1 = parseInt($("#angka1").val());
+var angka2 = parseInt($("#angka2").val());
 function generateKali(){
     reset();
  
-    var angka1 = parseInt($("#angka1").val());
-    var angka2 = parseInt($("#angka2").val());
+    angka1 = parseInt($("#angka1").val());
+    angka2 = parseInt($("#angka2").val());
 
 	if(isNaN(angka1) || isNaN(angka2)){
 	    swal("error","Input tidak valid", "error");
@@ -442,5 +444,6 @@ function perkalianState17(position) {
          default: 
         }   
     });
+    $("#hasil").text(angka1 *  angka2);
     swal("Berhasil", "Proses perkalian telah selesai", "success");
 }

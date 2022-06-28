@@ -1,8 +1,10 @@
+var angka1 = parseInt($("#angka1").val());
+var angka2 = parseInt($("#angka2").val());
 function generateKurang(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
-    var angka2 = parseInt($("#angka2").val());
+    angka1 = parseInt($("#angka1").val());
+    angka2 = parseInt($("#angka2").val());
     
     if(isNaN(angka1) || isNaN(angka2)){
         swal("error","Input tidak valid", "error");
@@ -270,7 +272,8 @@ function penguranganState10(position) {
             penguranganState10(position+1);
           break; 
          default: 
-            swal("Berhasil", "Proses pengurangan telah selesai", "Success");
+            $("#hasil").text(angka1 - angka2);
+            swal("Berhasil", "Proses pengurangan telah selesai", "success");
         }       
     });
 }
@@ -480,6 +483,7 @@ function penguranganState19(position) {
 }
 
 function penguranganState20(position) {
+    $("#hasil").text(angka1 - angka2);
     swal("Berhasil", "Proses pengurangan telah selesai", "success");
 }
 
@@ -564,6 +568,7 @@ function penguranganState24(position) {
 }
 
 function penguranganState25(position) {
+    $("#hasil").text(angka1 - angka2);
     swal("Berhasil", "Proses pengurangan telah selesai", "success");
 }
 

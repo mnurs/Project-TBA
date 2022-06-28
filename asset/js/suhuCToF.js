@@ -1,7 +1,8 @@
+var angka1 = parseInt($("#angka1").val());
 function generateCToF(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
+    angka1 = parseInt($("#angka1").val());
 
     if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
@@ -377,5 +378,6 @@ function cTfState13(position) {
 
 function cTfState14(position) {
     console.log(14); 
+    $("#hasil").text((angka1 * 2) + "F");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Fahrenheit telah selesai", "success");
 }

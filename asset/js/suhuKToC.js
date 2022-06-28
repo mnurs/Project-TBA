@@ -1,7 +1,8 @@
+var angka1 = parseInt($("#angka1").val());  
 function generateKtoC(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
+    angka1 = parseInt($("#angka1").val());
 
     if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
@@ -124,9 +125,11 @@ function kTcState3(position) {
 
 
 function kTcState5(position) { 
+    $("#hasil").text(angka1+"C");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 }
 
 function kTcState6(position) { 
+    $("#hasil").text(angka1+"C");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 }

@@ -1,7 +1,8 @@
+var angka1 = parseInt($("#angka1").val());
 function generateCToK(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
+    angka1 = parseInt($("#angka1").val());
 
     if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
@@ -103,9 +104,11 @@ function cTkState2(position) {
 
 
 function cTkState3(position) { 
+    $("#hasil").text(angka1+"K");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 }
 
 function cTkState4(position) { 
+    $("#hasil").text(angka1+"K");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 }

@@ -1,8 +1,11 @@
+
+var angka1 = parseInt($("#angka1").val());
+var angka2 = parseInt($("#angka2").val());
 function generatePangkat(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
-    var angka2 = parseInt($("#angka2").val());
+    angka1 = parseInt($("#angka1").val());
+    angka2 = parseInt($("#angka2").val());
     
     if(isNaN(angka1) || isNaN(angka2)){
         swal("error","Input tidak valid", "error");
@@ -332,7 +335,8 @@ function pangkatState13(position) {
     });
 }
 
-function pangkatState14(position) { 
+function pangkatState14(position) {  
+    $("#hasil").text(Math.pow(angka1,angka2)); 
     swal("Berhasil", "Proses perpangkatan telah selesai", "success");
 }
 

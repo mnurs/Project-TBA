@@ -1,7 +1,20 @@
+var angka1 = 0;
+function factorial(n){
+    let answer = 1;
+    if (n == 0 || n == 1){
+      return answer;
+    }else{
+      for(var i = n; i >= 1; i--){
+        answer = answer * i;
+      }
+      return answer;
+    }  
+  }
+
 function generateFaktorial(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
+    angka1 = parseInt($("#angka1").val());
 
     if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
@@ -736,6 +749,7 @@ function state23(position) {
 
 
 function state24(position) {
+    $("#hasil").text(factorial(angka1));
     swal("Berhasil", "Proses faktorial telah selesai", "success");
 }
 

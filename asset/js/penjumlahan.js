@@ -1,10 +1,13 @@
+var angka1 = parseInt($("#angka1").val());
+var angka2 = parseInt($("#angka2").val());
+
 function generateTambah(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
-    var angka2 = parseInt($("#angka2").val());
+    angka1 = parseInt($("#angka1").val());
+    angka2 = parseInt($("#angka2").val());
     
-    if(isNaN(angka1) || isNaN(b)){
+    if(isNaN(angka1) || isNaN(angka2)){
         swal("error","Input tidak valid", "error");
         return;
     }
@@ -83,5 +86,6 @@ function penjumlahanState2(position) {
 }
 
 function penjumlahanState3(position) {
+    $("#hasil").text(angka1 + angka2);
     swal("Berhasil", "Proses penjumlahan telah selesai", "success");
 }

@@ -1,7 +1,8 @@
+var angka1 = parseInt($("#angka1").val());
 function generateLogBiner(){
     reset();
 
-    var angka1 = parseInt($("#angka1").val());
+    angka1 = parseInt($("#angka1").val());
     
     if(isNaN(angka1)){
         swal("error","Input tidak valid", "error");
@@ -293,6 +294,7 @@ function logState11(position) {
     });
 }
 
-function logState12(position) {
+function logState12(position) { 
+    $("#hasil").text(Math.log2(angka1));
     swal("Berhasil", "Proses logaritma biner telah selesai", "success");
 }
