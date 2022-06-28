@@ -27,6 +27,10 @@
                             <option value="faktorial">!</option> 
                             <option value="pangkat">^</option>
                             <option value="logBiner">Log2</option>
+                            <option value="ctok">Celsius ke Kelvin</option>
+                            <option value="ktoc">Kelvin ke Celsius</option>
+                            <option value="ctof">Celsius ke Fahrenheit</option>
+                            <option value="ftoc">Fahrenheit ke Celsius</option>
                         </select>
                         <input type="text" class="form-control mr-3 d-none" disabled value="!" id="factorialInput">
                         <input type="number" id="angka2" class="form-control mr-3 d-none" placeholder="Bilangan 2">
@@ -106,6 +110,7 @@
                 bilInput1.attr("class", "form-control mr-3");
                 bilInput2.attr("class", "form-control mr-3");
             }
+            else if( operator.val() == "faktorial" || operator.val() == "logBiner" || operator.val() == "ctok" || operator.val() == "ktoc"  || operator.val() == "ftoc" || operator.val() == "ctof"){
                 bilInput1.attr("class", "form-control mr-3");
             } 
             fungsiOpenStateDiagram();
@@ -130,9 +135,21 @@
             } 
             else if (operator.val() == "pangkat"){
                 $("#imgState img").attr("src", "asset/img/pangkat_single.png");
-            }
+            } 
             else if (operator.val() == "logBiner"){
                 $("#imgState img").attr("src", "asset/img/logaritma_single.png");
+            }
+            else if (operator.val() == "ctok"){
+                $("#imgState img").attr("src", "asset/img/ctok_single.png");
+            }
+            else if (operator.val() == "ktoc"){
+                $("#imgState img").attr("src", "asset/img/ktoc_single.png");
+            }
+            else if (operator.val() == "ftoc"){
+                $("#imgState img").attr("src", "asset/img/ftoc_single.png");
+            }
+            else if (operator.val() == "ctof"){
+                $("#imgState img").attr("src", "asset/img/ctof_single.png");
             }
         }
 
