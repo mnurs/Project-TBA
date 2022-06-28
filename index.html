@@ -77,6 +77,7 @@
     <script src="asset/js/pangkat.js"></script>
     <script src="asset/js/faktorial.js"></script>
 
+    <script src="asset/js/suhuCToK.js"></script>
 
     <script>
         var counter;
@@ -105,7 +106,6 @@
                 bilInput1.attr("class", "form-control mr-3");
                 bilInput2.attr("class", "form-control mr-3");
             }
-            else if( operator.val() == "faktorial" || operator.val() == "logBiner"){
                 bilInput1.attr("class", "form-control mr-3");
             } 
             fungsiOpenStateDiagram();
@@ -158,6 +158,9 @@
             }
             else if (operator.val() == "logBiner"){
                 generateLogBiner();
+            }
+            else if (operator.val() == "ctok"){
+                generateCToK();
             }
         }
 
