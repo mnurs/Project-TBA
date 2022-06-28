@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turing Machine Simulator</title>
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="row"> 
+        <div class="container-fluid"> 
+             <nav class="navbar navbar-expand-lg  navbar-dark"  style="background-color: #000000;">
+              <a class="navbar-brand" href="#">Menu</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="index.html">Single</a>
+                  </li>
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Multiple  <span class="sr-only">(current)</span></a>
+                  </li> 
+                </ul>
+              </div>
+            </nav>
+        </div>
+        <div class="container-fluid" style="margin: 20px"> 
+            <div class="card border-success">
+                <div class="card-header  text-white bg-success">
+                    <h4>Turing Machine Simulator</h4>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Silahkan Masukkan Bilangan dan Operator yang diinginkan</h5>
+                    <div class="input-group">
+                        <input type="number" id="angka1" class="form-control mr-3 d-none" placeholder="Bilangan 1">
+                        <select class="form-control mr-3" id="operator" onchange="fungsiOpenTextBox()">
+                            <option value="">-- Pilih Operator --</option>
+                            <option value="tambah">+</option>
+                            <option value="kurang">-</option>
+                            <option value="kali">*</option>
+                            <option value="bagi">/</option>
+                            <option value="faktorial">!</option> 
+                            <option value="pangkat">^</option>
+                            <option value="logBiner">Log2</option>
+                            <option value="ctok">Celsius ke Kelvin</option>
+                            <option value="ktoc">Kelvin ke Celsius</option>
+                            <option value="ctof">Celsius ke Fahrenheit</option>
+                            <option value="ftoc">Fahrenheit ke Celsius</option>
+                        </select>
+                        <input type="text" class="form-control mr-3 d-none" disabled value="!" id="factorialInput">
+                        <input type="number" id="angka2" class="form-control mr-3 d-none" placeholder="Bilangan 2">
+                        <button class="btn btn-primary btn-sm" id="generateButton" onclick="fungsiGenerate()">Generate</button>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="row overflow-auto">
+                        <div class="col-md-2">
+                            <select class="form-control pl-3" id="kecepatan" onchange="fungsiKecepatan()">
+                                <option value="super-fast">Super Fast</option>
+                                <option value="fast">Fast</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="slow">Slow</option>
+                            </select>
+                        </div>
+                        <div class="col-md-10">
+                            <ul class="pagination" id="tape1"></ul>
+                            <ul class="pagination" id="tape2"> </ul>
+                            <ul class="pagination" id="tape3"> </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="card-footer   text-white bg-success">
+                    <div class="row overflow-auto"> 
+                        <div class="col-md-12">
+                             <h2>Hasil : <label id="hasil">0</label></h2>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <br>
+            </div>
+             <div class="card d-none" id="stateDiagram">
+                <div class="card-header  text-white bg-success">
+                    <h4>State Diagram</h4>
+                </div>
+                <div class="embed-responsive embed-responsive-16by9"  id="imgState">
+                    <img alt="Card image" class="card-img-top embed-responsive-item" src="asset/img/faktorial_single.png" />
+                </div> 
+            </div>
+        </div> 
+    </div> 
+        
+    </div>
+    <script src="asset/js/jquery-3.3.1.js"></script>
+    <script src="asset/js/bootstrap.min.js"></script>
+    <script src="asset/js/sweetalert.min.js"></script>  
+
+
+    <script src="asset/js/faktorialMulti.js"></script>  
+
+    <script>
+        var counter1;
+        var waktuPindah = 500;
+        
+        function reset(){
+            $("#tape1").empty(); 
+            $("#tape2").empty(); 
+            $("#tape3").empty(); 
+            counter1 = 0;
+            counter2 = 0;
+            counter3 = 0;
+        }
+ 
+        function waktu (time) {
+            return new Promise((resolve) => setTimeout(resolve, time));
+        }
+
+        var operator = $("#operator");
+        var bilInput1 =  $("#angka1");
+        var bilInput2 = $("#angka2");
+        var generateButton = $("#generateButton");
+        var stateDiagram = $("#stateDiagram");
+
+        function fungsiOpenTextBox(){
+            bilInput1.attr("class", "form-control mr-3 d-none");
+            bilInput2.attr("class", "form-control mr-3 d-none"); 
+
+            if(operator.val() == "tambah" || operator.val() == "kurang" || operator.val() == "kali" || operator.val() == "bagi" || operator.val() == "pangkat"){
+                bilInput1.attr("class", "form-control mr-3");
+                bilInput2.attr("class", "form-control mr-3");
+            }
+            else if( operator.val() == "faktorial" || operator.val() == "logBiner" || operator.val() == "ctok" || operator.val() == "ktoc"  || operator.val() == "ftoc" || operator.val() == "ctof"){
+                bilInput1.attr("class", "form-control mr-3");
+            } 
+            fungsiOpenStateDiagram();
+        }
+
+        function fungsiOpenStateDiagram(){ 
+            stateDiagram.attr("class", "card");
+            // if (operator.val() == "tambah"){
+            //     $("#imgState img").attr("src", "asset/img/Addition_single.png");
+            // }
+            // else if (operator.val() == "kurang"){
+            //     $("#imgState img").attr("src", "asset/img/Subtraction_single.png");
+            // }
+            // else if (operator.val() == "kali"){
+            //     $("#imgState img").attr("src", "asset/img/perkalian_single.png");
+            // }
+            // else if (operator.val() == "bagi"){
+            //     $("#imgState img").attr("src", "asset/img/pembagian_pembagian.png");
+            // }
+            // else 
+                if (operator.val() == "faktorial"){
+                $("#imgState img").attr("src", "asset/img/faktorial_multi.png");
+            } 
+            // else if (operator.val() == "pangkat"){
+            //     $("#imgState img").attr("src", "asset/img/pangkat_single.png");
+            // } 
+            // else if (operator.val() == "logBiner"){
+            //     $("#imgState img").attr("src", "asset/img/logaritma_single.png");
+            // }
+            // else if (operator.val() == "ctok"){
+            //     $("#imgState img").attr("src", "asset/img/ctok_single.png");
+            // }
+            // else if (operator.val() == "ktoc"){
+            //     $("#imgState img").attr("src", "asset/img/ktoc_single.png");
+            // }
+            // else if (operator.val() == "ftoc"){
+            //     $("#imgState img").attr("src", "asset/img/ftoc_single.png");
+            // }
+            // else if (operator.val() == "ctof"){
+            //     $("#imgState img").attr("src", "asset/img/ctof_single.png");
+            // }
+        }
+
+
+        function fungsiGenerate(){
+            // if (operator.val() == "tambah"){
+            //     generateTambah(); 
+            // }
+            // else if (operator.val() == "kurang"){
+            //     generateKurang();
+            // }
+            // else if (operator.val() == "kali"){
+            //     generateKali();
+            // }
+            // else if (operator.val() == "bagi"){
+            //     generateBagi();
+            // }
+            // else 
+                if (operator.val() == "faktorial"){
+                generateFaktorialMulti();
+            } 
+            // else if (operator.val() == "pangkat"){
+            //     generatePangkat();
+            // }
+            // else if (operator.val() == "logBiner"){
+            //     generateLogBiner();
+            // }
+            // else if (operator.val() == "ctok"){
+            //     generateCToK();
+            // }
+            // else if (operator.val() == "ktoc"){
+            //     generateKtoC();
+            // }
+            // else if (operator.val() == "ctof"){
+            //     generateCToF();
+            // }
+        }
+
+        kecepatanInput = $("#kecepatan");
+        function fungsiKecepatan(){
+            if(kecepatanInput.val() == "slow") waktuPindah = 1000;
+            else if(kecepatanInput.val() == "medium") waktuPindah = 500;
+            else if(kecepatanInput.val() == "fast") waktuPindah = 150;
+            else if(kecepatanInput.val() == "super-fast") waktuPindah = 1;
+        } 
+
+        function createTape1(value){ 
+            $("#tape1").append('<li class="page-item page-link" id="item1-'+counter1+'">'+value+'</li>'); 
+            counter1++;
+        }
+
+        function createTape2(value){ 
+            $("#tape2").append('<li class="page-item page-link" id="item2-'+counter2+'">'+value+'</li>'); 
+            counter2++;
+        }
+
+        function createTape3(value){ 
+            $("#tape3").append('<li class="page-item page-link" id="item3-'+counter3+'">'+value+'</li>'); 
+            counter3++;
+        }
+
+        function loopCreateTape1(temp, value) {
+            for (let index = 0; index < temp; index++) {
+                createTape1(value);
+            }
+        }
+
+        function loopCreateTape2(temp, value) {
+            for (let index = 0; index < temp; index++) {
+                createTape2(value);
+            }
+        }
+
+        function loopCreateTape3(temp, value) {
+            for (let index = 0; index < temp; index++) {
+                createTape3(value);
+            }
+        }
+        
+    </script>
+</body>
+</html>
