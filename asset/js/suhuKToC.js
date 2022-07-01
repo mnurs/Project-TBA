@@ -70,7 +70,7 @@ function kTcState1(position) {
           break;
          case "B":
             value.text("B"); 
-            kTcState6(position+1);
+            kTcState4(position+1);
           break;
          default: 
         }       
@@ -95,7 +95,7 @@ function kTcState2(position) {
           break; 
           case "B":
             value.text("B"); 
-            kTcState5(position+1);
+            kTcState4(position+1);
           break; 
          default: 
         }       
@@ -124,12 +124,7 @@ function kTcState3(position) {
 }
 
 
-function kTcState5(position) { 
+function kTcState4(position) { 
     $("#hasil").text(angka1+"C");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
-}
-
-function kTcState6(position) { 
-    $("#hasil").text(angka1+"C");
-    swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
-}
+} 

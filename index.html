@@ -49,6 +49,8 @@
                             <option value="ktoc">Kelvin ke Celsius</option>
                             <option value="ctof">Celsius ke Fahrenheit</option>
                             <option value="ftoc">Fahrenheit ke Celsius</option>
+                            <option value="ktof">Kelvin ke Fahrenheit</option>
+                            <option value="ftok">Fahrenheit ke Kelvin</option>
                         </select>
                         <input type="text" class="form-control mr-3 d-none" disabled value="!" id="factorialInput">
                         <input type="number" id="angka2" class="form-control mr-3 d-none" placeholder="Bilangan 2">
@@ -108,6 +110,9 @@
     <script src="asset/js/suhuCToK.js"></script>
     <script src="asset/js/suhuKToC.js"></script>
     <script src="asset/js/suhuCToF.js"></script>
+    <script src="asset/js/suhuFToC.js"></script>
+    <script src="asset/js/suhuKToF.js"></script>
+    <script src="asset/js/suhuFToK.js"></script>
 
     <script>
         var counter;
@@ -136,7 +141,7 @@
                 bilInput1.attr("class", "form-control mr-3");
                 bilInput2.attr("class", "form-control mr-3");
             }
-            else if( operator.val() == "faktorial" || operator.val() == "logBiner" || operator.val() == "ctok" || operator.val() == "ktoc"  || operator.val() == "ftoc" || operator.val() == "ctof"){
+            else if( operator.val() == "faktorial" || operator.val() == "logBiner" || operator.val() == "ctok" || operator.val() == "ktoc"  || operator.val() == "ftoc" || operator.val() == "ctof" || operator.val() == "ftok" || operator.val() == "ktof"){
                 bilInput1.attr("class", "form-control mr-3");
             } 
             fungsiOpenStateDiagram();
@@ -177,6 +182,12 @@
             else if (operator.val() == "ctof"){
                 $("#imgState img").attr("src", "asset/img/ctof_single.png");
             }
+            else if(operator.val() == "ftok"){
+                $("#imgState img").attr("src", "asset/img/ftok_single.png");
+            }
+            else if(operator.val() == "ktof"){
+                $("#imgState img").attr("src", "asset/img/ktof_single.png");
+            }
         }
 
 
@@ -210,6 +221,15 @@
             }
             else if (operator.val() == "ctof"){
                 generateCToF();
+            }
+            else if (operator.val() == "ftoc"){
+                generateFToC();
+            }
+            else if (operator.val() == "ftok"){
+                generateFToK();
+            }
+            else if (operator.val() == "ktof"){
+                generateKToF();
             }
         }
 

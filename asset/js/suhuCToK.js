@@ -48,7 +48,7 @@ function cTkState0(position) {
           break;
          case "B":
             value.text("K"); 
-            cTkState4(position+1);
+            cTkState3(position+1);
           break;
          default: 
         }       
@@ -104,11 +104,6 @@ function cTkState2(position) {
 
 
 function cTkState3(position) { 
-    $("#hasil").text(angka1+"K");
-    swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
-}
-
-function cTkState4(position) { 
     $("#hasil").text(angka1+"K");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 }
