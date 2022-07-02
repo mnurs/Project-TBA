@@ -27,13 +27,13 @@ function generateKtoC(){
 
 }
 
-function kTcState0(position) {
-    var value = $("#item-"+position); 
+function kTcState0(posisi) {
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -41,20 +41,20 @@ function kTcState0(position) {
         switch(value.text()) {
          case "K":
             value.text("B"); 
-            kTcState1(position+1);
+            kTcState1(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function kTcState1(position) {
-    var value = $("#item-"+position); 
+function kTcState1(posisi) {
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -62,28 +62,28 @@ function kTcState1(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            kTcState2(position+1);
+            kTcState2(posisi+1);
           break;
          case "N":
             value.text("N"); 
-            kTcState3(position+1);
+            kTcState3(posisi+1);
           break;
          case "B":
             value.text("B"); 
-            kTcState4(position+1);
+            kTcState4(posisi+1);
           break;
          default: 
         }       
     });
 }
 
-function kTcState2(position) {
-    var value = $("#item-"+position); 
+function kTcState2(posisi) {
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -91,24 +91,24 @@ function kTcState2(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            kTcState2(position+1);
+            kTcState2(posisi+1);
           break; 
           case "B":
             value.text("B"); 
-            kTcState4(position+1);
+            kTcState4(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function kTcState3(position) {
-    var value = $("#item-"+position); 
+function kTcState3(posisi) {
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -116,7 +116,7 @@ function kTcState3(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            kTcState2(position+1);
+            kTcState2(posisi+1);
           break; 
          default: 
         }       
@@ -124,7 +124,7 @@ function kTcState3(position) {
 }
 
 
-function kTcState4(position) { 
+function kTcState4(posisi) { 
     $("#hasil").text(angka1+"C");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Kalvin telah selesai", "success");
 } 

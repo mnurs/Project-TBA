@@ -60,16 +60,16 @@ function generateFaktorialMulti(){
     } 
 }
 
-function faktorialMultiState0(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState0(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -77,7 +77,7 @@ function faktorialMultiState0(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -85,7 +85,7 @@ function faktorialMultiState0(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -97,27 +97,27 @@ function faktorialMultiState0(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState0(position1+1,position2+1,position3);
+            faktorialMultiState0(posisi1+1,posisi2+1,posisi3);
         } else if(value1.text() == "1" && value2.text() == "B" && value3.text() == "B"){
             value1.text("B"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState1(position1-1,position2-1,position3);
+            faktorialMultiState1(posisi1-1,posisi2-1,posisi3);
         }         
     });
 }
 
 
-function faktorialMultiState1(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState1(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -125,7 +125,7 @@ function faktorialMultiState1(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -133,7 +133,7 @@ function faktorialMultiState1(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -145,28 +145,28 @@ function faktorialMultiState1(position1,position2,position3) {
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState2(position1,position2-1,position3+1);
+            faktorialMultiState2(posisi1,posisi2-1,posisi3+1);
         } else if(value1.text() == "B" && value2.text() == "B" && value3.text() == "B"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState2(position1,position2,position3);
+            faktorialMultiState2(posisi1,posisi2,posisi3);
         }          
     });
 }
 
 
 
-function faktorialMultiState2(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState2(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -174,7 +174,7 @@ function faktorialMultiState2(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -182,7 +182,7 @@ function faktorialMultiState2(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -194,37 +194,37 @@ function faktorialMultiState2(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState2(position1-1,position2,position3+1);
+            faktorialMultiState2(posisi1-1,posisi2,posisi3+1);
         } else if(value1.text() == "0" && value2.text() == "0" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState2(position1-1,position2,position3+1);
+            faktorialMultiState2(posisi1-1,posisi2,posisi3+1);
         } else if(value1.text() == "B" && value2.text() == "0" && value3.text() == "B"){
             value1.text("B"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState3(position1+1,position2-1,position3);
+            faktorialMultiState3(posisi1+1,posisi2-1,posisi3);
         }  else if(value1.text() == "0" && value2.text() == "B" && value3.text() == "B"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState7(position1,position2+1,position3);
+            faktorialMultiState7(posisi1,posisi2+1,posisi3);
         }          
     });
 }
 
 
-function faktorialMultiState3(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState3(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -232,7 +232,7 @@ function faktorialMultiState3(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -240,7 +240,7 @@ function faktorialMultiState3(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -253,39 +253,39 @@ function faktorialMultiState3(position1,position2,position3) {
             value2.text("0"); 
             value3.text("0"); 
             console.log("faktorialMultiState3 "+ value1.text() + " " + value2.text() + " " + value3.text());
-            faktorialMultiState3(position1+1,position2,position3+1);
+            faktorialMultiState3(posisi1+1,posisi2,posisi3+1);
         } else if(value1.text() == "0" && value2.text() == "0" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
             console.log("faktorialMultiState31"+ value1.text() + " " + value2.text() + " " + value3.text());
-            faktorialMultiState3(position1+1,position2,position3+1);
+            faktorialMultiState3(posisi1+1,posisi2,posisi3+1);
         } else if(value1.text() == "B" && value2.text() == "0" && value3.text() == "B"){
             value1.text("B"); 
             value2.text("0"); 
             value3.text("B"); 
             console.log("faktorialMultiState32");
-            faktorialMultiState2(position1-1,position2-1,position3);
+            faktorialMultiState2(posisi1-1,posisi2-1,posisi3);
         } else if(value1.text() == "0" && value2.text() == "B" && value3.text() == "B"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
             console.log("faktorialMultiState33");
-            faktorialMultiState4(position1,position2+1,position3);
+            faktorialMultiState4(posisi1,posisi2+1,posisi3);
         }               
     });
 }
 
-function faktorialMultiState4(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState4(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -293,7 +293,7 @@ function faktorialMultiState4(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -301,7 +301,7 @@ function faktorialMultiState4(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -313,22 +313,22 @@ function faktorialMultiState4(position1,position2,position3) {
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState5(position1,position2+1,position3-1);
+            faktorialMultiState5(posisi1,posisi2+1,posisi3-1);
         }         
     });
 }
 
 
-function faktorialMultiState5(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState5(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -336,7 +336,7 @@ function faktorialMultiState5(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -344,7 +344,7 @@ function faktorialMultiState5(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -356,36 +356,36 @@ function faktorialMultiState5(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState5(position1+1,position2,position3-1);
+            faktorialMultiState5(posisi1+1,posisi2,posisi3-1);
         }else if(value1.text() == "B" && value2.text() == "0" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState5(position1+1,position2,position3-1);
+            faktorialMultiState5(posisi1+1,posisi2,posisi3-1);
         }  else if(value1.text() == "B" && value2.text() == "0" && value3.text() == "B"){
             value1.text("B"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState6(position1-1,position2+1,position3);
+            faktorialMultiState6(posisi1-1,posisi2+1,posisi3);
         } else if(value1.text() == "0" && value2.text() == "B" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("0"); 
-            faktorialMultiState10(position1,position2,position3);
+            faktorialMultiState10(posisi1,posisi2,posisi3);
         }           
     });
 }
 
-function faktorialMultiState6(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState6(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -393,7 +393,7 @@ function faktorialMultiState6(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -401,7 +401,7 @@ function faktorialMultiState6(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -413,27 +413,27 @@ function faktorialMultiState6(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState6(position1,position2+1,position3);
+            faktorialMultiState6(posisi1,posisi2+1,posisi3);
         }else if(value1.text() == "0" && value2.text() == "B" && value3.text() == "B"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState2(position1,position2-1,position3+1);
+            faktorialMultiState2(posisi1,posisi2-1,posisi3+1);
         }          
     });
 }
 
 
-function faktorialMultiState7(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState7(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -441,7 +441,7 @@ function faktorialMultiState7(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -449,7 +449,7 @@ function faktorialMultiState7(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -461,23 +461,23 @@ function faktorialMultiState7(position1,position2,position3) {
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState8(position1,position2+1,position3-1);
+            faktorialMultiState8(posisi1,posisi2+1,posisi3-1);
         }         
     });
 }
 
 
-function faktorialMultiState8(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState8(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
-    console.log(position1);
+    console.log(posisi1);
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -485,7 +485,7 @@ function faktorialMultiState8(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -493,7 +493,7 @@ function faktorialMultiState8(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -505,36 +505,36 @@ function faktorialMultiState8(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState8(position1-1,position2,position3-1);
+            faktorialMultiState8(posisi1-1,posisi2,posisi3-1);
         }  else  if(value1.text() == "B" && value2.text() == "0" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("0"); 
             value3.text("0"); 
-            faktorialMultiState8(position1-1,position2,position3-1);
+            faktorialMultiState8(posisi1-1,posisi2,posisi3-1);
         } else  if(value1.text() == "B" && value2.text() == "0" && value3.text() == "B"){
             value1.text("B"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState9(position1+1,position2+1,position3);
+            faktorialMultiState9(posisi1+1,posisi2+1,posisi3);
         } else  if(value1.text() == "0" && value2.text() == "B" && value3.text() == "0"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("0"); 
-            faktorialMultiState10(position1,position2,position3);
+            faktorialMultiState10(posisi1,posisi2,posisi3);
         }      
     });
 }
 
-function faktorialMultiState9(position1,position2,position3) {
-    var value1 = $("#item1-"+position1);  
-    var value2 = $("#item2-"+position2); 
-    var value3 = $("#item3-"+position3);  
+function faktorialMultiState9(posisi1,posisi2,posisi3) {
+    var value1 = $("#item1-"+posisi1);  
+    var value2 = $("#item2-"+posisi2); 
+    var value3 = $("#item3-"+posisi3);  
     console.log(value1.text() + " " + value2.text() + " " + value3.text());
     if(value1.text() != null && value1.text() != ""){ 
         value1.addClass("bg-dark");
     }else{
         loopCreateTape1(1, "B");
-        var value1 = $("#item1-"+position1);
+        var value1 = $("#item1-"+posisi1);
         value1.addClass("bg-dark");
     }  
 
@@ -542,7 +542,7 @@ function faktorialMultiState9(position1,position2,position3) {
         value2.addClass("bg-dark");
     }else{
         loopCreateTape2(1, "B");
-        var value2 = $("#item2-"+position2);
+        var value2 = $("#item2-"+posisi2);
         value2.addClass("bg-dark");
     }  
 
@@ -550,7 +550,7 @@ function faktorialMultiState9(position1,position2,position3) {
         value3.addClass("bg-dark");
     }else{
         loopCreateTape3(1, "B");
-        var value3 = $("#item3-"+position3);
+        var value3 = $("#item3-"+posisi3);
         value3.addClass("bg-dark");
     } 
 
@@ -562,19 +562,18 @@ function faktorialMultiState9(position1,position2,position3) {
             value1.text("0"); 
             value2.text("0"); 
             value3.text("B"); 
-            faktorialMultiState9(position1,position2+1,position3);
+            faktorialMultiState9(posisi1,posisi2+1,posisi3);
         }  else  if(value1.text() == "0" && value2.text() == "B" && value3.text() == "B"){
             value1.text("0"); 
             value2.text("B"); 
             value3.text("B"); 
-            faktorialMultiState3(position1,position2-1,position3+1);
+            faktorialMultiState3(posisi1,posisi2-1,posisi3+1);
         }         
     });
 }
 
 
-function faktorialMultiState10(position1,position2,position3) {
-    console.log(angka1);
+function faktorialMultiState10(posisi1,posisi2,posisi3) { 
     $("#hasil").text(factorial(angka1));
     swal("Berhasil", "Proses penjumlahan telah selesai", "success");
 }

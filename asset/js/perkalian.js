@@ -30,416 +30,416 @@ function generateKali(){
     perkalianState0(1);
 }
 
-function perkalianState0(position) {
+function perkalianState0(posisi) {
     console.log(0);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) { 
          case "P":
             value.text("B");
-            perkalianState1(position+1);
+            perkalianState1(posisi+1);
           break;
          case "N":
             value.text("B");
-            perkalianState3(position+1);
+            perkalianState3(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function perkalianState1(position) {
+function perkalianState1(posisi) {
     console.log(1);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState1(position+1);
+            perkalianState1(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState2(position+1);
+            perkalianState2(posisi+1);
           break;
          case "N":
             value.text("N");
-            perkalianState4(position+1);
+            perkalianState4(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState2(position) {
+function perkalianState2(posisi) {
     console.log(2);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState2(position+1);
+            perkalianState2(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState5(position-1);
+            perkalianState5(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState3(position) {
+function perkalianState3(posisi) {
     console.log(3);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState3(position+1);
+            perkalianState3(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState4(position+1);
+            perkalianState4(posisi+1);
           break;
          case "N":
             value.text("N");
-            perkalianState2(position+1);
+            perkalianState2(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState4(position) {
+function perkalianState4(posisi) {
     console.log(4);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState4(position+1);
+            perkalianState4(posisi+1);
           break;
          case "P":
             value.text("N");
-            perkalianState5(position-1);
+            perkalianState5(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState5(position) {
+function perkalianState5(posisi) {
     console.log(5);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState5(position-1);
+            perkalianState5(posisi-1);
           break;
          case "P":
             value.text("P");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break;
          case "N":
             value.text("N");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState6(position) {
+function perkalianState6(posisi) {
     console.log(6);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break; 
          case "B":
             value.text("B");
-            perkalianState7(position+1);
+            perkalianState7(posisi+1);
           break;
          default: 
         }   
     });
 }
 
-function perkalianState7(position) {
+function perkalianState7(posisi) {
     console.log(7);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("B");
-            perkalianState8(position+1);
+            perkalianState8(posisi+1);
           break;
          case "P":
             value.text("B");
-            perkalianState17(position+1);
+            perkalianState17(posisi+1);
           break;
          case "N":
             value.text("B");
-            perkalianState17(position+1);
+            perkalianState17(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState8(position) {
+function perkalianState8(posisi) {
     console.log(8);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState8(position+1);
+            perkalianState8(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState9(position+1);
+            perkalianState9(posisi+1);
           break;
          case "N":
             value.text("N");
-            perkalianState9(position+1);
+            perkalianState9(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState9(position) {
+function perkalianState9(posisi) {
     console.log(9);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState9(position+1);
+            perkalianState9(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState10(position-1);
+            perkalianState10(posisi-1);
           break;
          case "N":
             value.text("N");
-            perkalianState10(position-1);
+            perkalianState10(posisi-1);
           break;
          case "X":
             value.text("X");
-            perkalianState9(position+1);
+            perkalianState9(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState10(position) {
+function perkalianState10(posisi) {
     console.log(10);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("X");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break; 
          case "X":
             value.text("0");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState11(position) {
+function perkalianState11(posisi) {
     console.log(11);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState12(position+1);
+            perkalianState12(posisi+1);
           break;
          case "N":
             value.text("N");
-            perkalianState12(position+1);
+            perkalianState12(posisi+1);
           break;
          case "X":
             value.text("X");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState12(position) {
+function perkalianState12(posisi) {
     console.log(12);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState12(position+1);
+            perkalianState12(posisi+1);
           break; 
          case "B":
             value.text("0");
-            perkalianState13(position-1);
+            perkalianState13(posisi-1);
           break;
          default: 
         }   
     });
 }
 
-function perkalianState13(position) {
+function perkalianState13(posisi) {
     console.log(13);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0":
             value.text("0");
-            perkalianState13(position-1);
+            perkalianState13(posisi-1);
           break;
          case "P":
             value.text("P");
-            perkalianState14(position-1);
+            perkalianState14(posisi-1);
           break;
          case "N":
             value.text("N");
-            perkalianState14(position-1);
+            perkalianState14(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState14(position) {
+function perkalianState14(posisi) {
     console.log(14);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState16(position-1);
+            perkalianState16(posisi-1);
           break; 
          case "X":
             value.text("X");
-            perkalianState15(position-1);
+            perkalianState15(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState15(position) {
+function perkalianState15(posisi) {
     console.log(15);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("X");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break;
          case "P":
             value.text("P");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break;
          case "N":
             value.text("N");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break;
          case "X":
             value.text("X");
-            perkalianState15(position-1);
+            perkalianState15(posisi-1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState16(position) {
+function perkalianState16(posisi) {
     console.log(16);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            perkalianState16(position-1);
+            perkalianState16(posisi-1);
           break;
          case "P":
             value.text("P");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break;
          case "N":
             value.text("N");
-            perkalianState6(position-1);
+            perkalianState6(posisi-1);
           break;
          case "X":
             value.text("0");
-            perkalianState11(position+1);
+            perkalianState11(posisi+1);
           break; 
          default: 
         }   
     });
 }
 
-function perkalianState17(position) {
+function perkalianState17(posisi) {
     console.log(17);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("B");
-            perkalianState17(position+1);
+            perkalianState17(posisi+1);
           break; 
          case "X":
             value.text("B");
-            perkalianState17(position+1);
+            perkalianState17(posisi+1);
           break; 
          default: 
         }   

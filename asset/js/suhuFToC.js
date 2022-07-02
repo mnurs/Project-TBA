@@ -25,14 +25,14 @@ function generateFToC(){
 
 }
 
-function fTcState0(position) {
+function fTcState0(posisi) {
     console.log(0);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -40,15 +40,15 @@ function fTcState0(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            fTcState0(position+1);
+            fTcState0(posisi+1);
           break;
          case "F":
             value.text("B"); 
-            fTcState1(position-1);
+            fTcState1(posisi-1);
           break; 
          case "N":
             value.text("N"); 
-            fTcState10(position+1);
+            fTcState10(posisi+1);
           break; 
          default: 
         }       
@@ -56,14 +56,14 @@ function fTcState0(position) {
 }
 
 
-function fTcState1(position) {
+function fTcState1(posisi) {
     console.log(1);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -71,29 +71,29 @@ function fTcState1(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            fTcState1(position-1);
+            fTcState1(posisi-1);
           break; 
           case "B":
             value.text("B"); 
-            fTcState2(position+1);
+            fTcState2(posisi+1);
           break; 
           case "N":
             value.text("N"); 
-            fTcState2(position+1);
+            fTcState2(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function fTcState2(position) {
+function fTcState2(posisi) {
     console.log(2);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -101,11 +101,11 @@ function fTcState2(position) {
         switch(value.text()) { 
         case "0":
             value.text("X"); 
-            fTcState3(position+1);
+            fTcState3(posisi+1);
           break; 
         case "Y":
             value.text("Y"); 
-            fTcState6(position);
+            fTcState6(posisi);
           break; 
          default: 
         }       
@@ -113,14 +113,14 @@ function fTcState2(position) {
 }
 
 
-function fTcState3(position) {  
+function fTcState3(posisi) {  
     console.log(3);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -128,33 +128,33 @@ function fTcState3(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            fTcState3(position+1);
+            fTcState3(posisi+1);
           break; 
         case "B":
             value.text("B"); 
-            fTcState4(position-1);
+            fTcState4(posisi-1);
           break; 
         case "Y":
             value.text("Y"); 
-            fTcState4(position+1);
+            fTcState4(posisi+1);
           break; 
         case "Y":
             value.text("Y"); 
-            fTcState6(position);
+            fTcState6(posisi);
           break; 
          default: 
         }       
     });
 }
 
-function fTcState4(position) { 
+function fTcState4(posisi) { 
     console.log(4);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -162,21 +162,21 @@ function fTcState4(position) {
         switch(value.text()) {
          case "0":
             value.text("Y"); 
-            fTcState5(position-1);
+            fTcState5(posisi-1);
           break;   
          default: 
         }       
     });
 }
 
-function fTcState5(position) { 
+function fTcState5(posisi) { 
     console.log(5);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -184,25 +184,25 @@ function fTcState5(position) {
         switch(value.text()) {
          case "0":
             value.text("0"); 
-            fTcState5(position-1);
+            fTcState5(posisi-1);
           break;  
          case "X":
             value.text("X"); 
-            fTcState2(position+1);
+            fTcState2(posisi+1);
           break;  
          default: 
         }       
     });
 }
 
-function fTcState6(position) { 
+function fTcState6(posisi) { 
     console.log(6);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -210,25 +210,25 @@ function fTcState6(position) {
         switch(value.text()) {
          case "Y":
             value.text("B"); 
-            fTcState6(position+1);
+            fTcState6(posisi+1);
           break;   
          case "B":
             value.text("B"); 
-            fTcState7(position-1);
+            fTcState7(posisi-1);
           break; 
          default: 
         }       
     });
 }
 
-function fTcState7(position) { 
+function fTcState7(posisi) { 
     console.log(7);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -236,25 +236,25 @@ function fTcState7(position) {
         switch(value.text()) {
          case "B":
             value.text("B"); 
-            fTcState7(position-1);
+            fTcState7(posisi-1);
           break;  
          case "X":
             value.text("0"); 
-            fTcState8(position+1);
+            fTcState8(posisi+1);
           break;  
          default: 
         }       
     });
 }
 
-function fTcState8(position) { 
+function fTcState8(posisi) { 
     console.log(8);
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -262,35 +262,35 @@ function fTcState8(position) {
         switch(value.text()) {
          case "X":
             value.text("0"); 
-            fTcState8(position-1);
+            fTcState8(posisi-1);
           break;  
          case "B":
             value.text("B"); 
-            fTcState9(position+1);
+            fTcState9(posisi+1);
           break;  
          case "N":
             value.text("N"); 
-            fTcState9(position+1);
+            fTcState9(posisi+1);
           break;  
          default: 
         }       
     });
 }
 
-function fTcState9(position) { 
+function fTcState9(posisi) { 
     console.log(10); 
     $("#hasil").text(angka1 + "C");
     swal("Berhasil", "Proses perhitungan suhu Celcius Ke Fahrenheit telah selesai", "success");
 }
 
-function fTcState10(position) { 
+function fTcState10(posisi) { 
     console.log(11); 
-    var value = $("#item-"+position); 
+    var value = $("#item-"+posisi); 
     if(value.text() != null && value.text() != ""){ 
         value.addClass("bg-dark");
     }else{
         loopCreateTape(1, "B");
-        var value = $("#item-"+position);
+        var value = $("#item-"+posisi);
         value.addClass("bg-dark");
     } 
     waktu(waktuPindah).then(() => {
@@ -298,7 +298,7 @@ function fTcState10(position) {
         switch(value.text()) { 
          case "0":
             value.text("0"); 
-            fTcState0(position);
+            fTcState0(posisi);
           break;  
          default: 
         }       

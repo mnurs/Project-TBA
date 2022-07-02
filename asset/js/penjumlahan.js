@@ -25,67 +25,67 @@ function generateTambah(){
     penjumlahanState0(1);
 }
 
-function penjumlahanState0(position) {
+function penjumlahanState0(posisi) {
     console.log(0);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("B");
-            penjumlahanState1(position+1);
+            penjumlahanState1(posisi+1);
           break;
          case "1":
             value.text("B");
-            penjumlahanState2(position+1);
+            penjumlahanState2(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function penjumlahanState1(position) {
+function penjumlahanState1(posisi) {
     console.log(1);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            penjumlahanState1(position+1);
+            penjumlahanState1(posisi+1);
           break;
          case "1":
             value.text("0");
-            penjumlahanState2(position+1);
+            penjumlahanState2(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function penjumlahanState2(position) {
+function penjumlahanState2(posisi) {
     console.log(2);
-    var value = $("#item-"+position);
+    var value = $("#item-"+posisi);
     value.addClass("bg-dark");
     waktu(waktuPindah).then(() => {
         value.removeClass("bg-dark");
         switch(value.text()) {
          case "0": 
             value.text("0");
-            penjumlahanState2(position+1);
+            penjumlahanState2(posisi+1);
           break;
          case "1":
             value.text("B");
-            penjumlahanState3(position+1);
+            penjumlahanState3(posisi+1);
           break; 
          default: 
         }       
     });
 }
 
-function penjumlahanState3(position) {
+function penjumlahanState3(posisi) {
     $("#hasil").text(angka1 + angka2);
     swal("Berhasil", "Proses penjumlahan telah selesai", "success");
 }
